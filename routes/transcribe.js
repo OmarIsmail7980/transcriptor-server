@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
       part: "id,snippet",
       q: query,
       type: "video",
-      maxResults: 10,
+      maxResults: 50,
       videoCaption: "closedCaption",
     });
 
