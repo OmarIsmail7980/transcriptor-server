@@ -39,15 +39,23 @@ router.get("/:videoID", async (req, res) => {
     const { videoID } = req.params;
 
     const transcripts = await YoutubeTranscript.fetchTranscript(videoID);
-    const transcriptsArr = transcripts.map(script=>script.text);
-    const returnString = transcriptsArr.join(" ");
+    const filteredTranscripts = transcripts.filter(
+      (script) => script.language === "en"
+    ); // Filter transcripts for English language
+    const transcriptsArr = filteredTranscripts.map((script) => script.text);
+    const returnString = transcriptsArr.join(".");
 
-    res.status(200).json({ success: true, transcript: returnString });
+    res
+      .status(200)
+      .json({
+        success: true,
+        transcript: returnString,
+        transcriptor: filteredTranscripts,
+      });
   } catch (error) {
     res.status(500).send(error);
-    console.log(error)
+    console.log(error);
   }
 });
-
 
 module.exports = router;
