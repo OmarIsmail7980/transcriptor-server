@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 router.get("/:videoID", async (req, res) => {
   try {
     const { videoID } = req.params;
-    const transcripts = await YoutubeTranscript.fetchTranscript(videoID);
+    const transcripts = await YoutubeTranscript.fetchTranscript(videoID,{lang:"en"});
     // const filteredTranscripts = transcripts.filter(
     //   (script) => script.language === "en"
     // ); // Filter transcripts for English language
