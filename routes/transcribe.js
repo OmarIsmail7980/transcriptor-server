@@ -11,7 +11,6 @@ const youtube = google.youtube({
   version: "v3",
   auth: apiKey,
 });
-
 router.post("/", async (req, res) => {
   try {
     const { query } = req.body;
