@@ -4,8 +4,8 @@ const transcribe = require("./routes/transcribe");
 const PORT = 8091;
 
 const app = express();
-
-app.use(cors());
+const origin = "https://transcriptor-client.vercel.app/";
+app.use(cors({ origin }));
 app.use(express.json());
 
 app.use("/api/v1/transcribe", transcribe);
