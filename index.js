@@ -4,7 +4,7 @@ const transcribe = require("./routes/transcribe");
 const PORT = 8091;
 
 const app = express();
-const origin = "https://transcriptor-client.vercel.app"; // Remove the trailing slash
+const origin = "https://transcriptor.netlify.app";
 app.use(cors({ origin }));
 app.use(express.json());
 
