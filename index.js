@@ -4,7 +4,7 @@ const transcribe = require("./routes/transcribe");
 const PORT = 8091;
 
 const app = express();
-const origin = "https://transcriptor-client.vercel.app/";
+const origin = "https://transcriptor-client.vercel.app"; // Remove the trailing slash
 app.use(cors({ origin }));
 app.use(express.json());
 
@@ -15,5 +15,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`listenning on PORT ${PORT}`);
+  console.log(`listening on PORT ${PORT}`);
 });
