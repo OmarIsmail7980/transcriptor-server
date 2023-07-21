@@ -7,6 +7,7 @@ const router = express.Router();
 dotenv.config();
 
 const apiKey = process.env.API_KEY;
+console.log(apiKey)
 const youtube = google.youtube({
   version: "v3",
   auth: apiKey,
